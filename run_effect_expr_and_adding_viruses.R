@@ -26,6 +26,7 @@ eval_assess <- evaluateFiles(dir_assess, files_assess)
 
 colors <- c("#77a451", "#9765ca","#c7733b", "#6c93c5","#c65b80")
 labels <- c("Without gene expression",  "With gene expression")
+results_folder <- "Data analysis/Plots/"
 
 boxplotCompare <- function(x, y, ylab="", labels=NULL) {
   data <- list(x, y)
@@ -35,7 +36,7 @@ boxplotCompare <- function(x, y, ylab="", labels=NULL) {
 
 ## Plots Figure 3 - effect of gene expression
 # Figure 3a
-pdf(paste0(wd, "Expr_median_AUC.pdf"), width=8)
+pdf(paste0(results_folder, "Expr_median_AUC.pdf"), width=8)
 par(mar=c(3,5,3,1)+.1)
 boxplotCompare(apply(eval_noexpr$auc, 2, median), apply(eval_expr$auc, 2, 
                                                         median), 
@@ -44,7 +45,7 @@ boxplotCompare(apply(eval_noexpr$auc, 2, median), apply(eval_expr$auc, 2,
 dev.off()
 
 # Figure 3b
-pdf(paste0(wd, "Expr_median_Recall.pdf"), width=8)
+pdf(paste0(results_folder, "Expr_median_Recall.pdf"), width=8)
 par(mar=c(3,5,3,1)+.1)
 boxplotCompare(apply(eval_noexpr$recall, 2, median), apply(eval_expr$recall, 2, 
                                                            median), 
@@ -56,7 +57,7 @@ dev.off()
 labels <- c("Assessment set",  "Original set")
 
 # Fig S3a
-pdf(paste0(wd, "assess_median_AUC.pdf"), width=8)
+pdf(paste0(results_folder, "assess_median_AUC.pdf"), width=8)
 par(mar=c(3,5,3,1)+.1)
 boxplotCompare(apply(eval_assess$auc, 2, median), apply(eval_expr$auc, 2, 
                                                           median), 
@@ -64,7 +65,7 @@ boxplotCompare(apply(eval_assess$auc, 2, median), apply(eval_expr$auc, 2,
 dev.off()
 
 # Fig S3b
-pdf(paste0(wd, "assess_median_Recall.pdf"), width=8)
+pdf(paste0(results_folder, "assess_median_Recall.pdf"), width=8)
 par(mar=c(3,5,3,1)+.1)
 boxplotCompare(apply(eval_assess$recall, 2, median), apply(eval_expr$recall, 
                                                              2, median), 

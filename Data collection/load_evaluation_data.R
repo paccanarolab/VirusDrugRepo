@@ -3,7 +3,7 @@ loadPredictionsCompetitors <- function() {
   load("Data analysis/Competitors/predictions_competitors.RData")
   santos <<- santos
   li_et_al <<- li_et_al
-  save_runner <<- save_runner
+  save_runner <<- save_runner_adj
 }
 
 loadDrugVirusAssociations <- function() {

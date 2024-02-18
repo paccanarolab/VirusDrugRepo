@@ -2,6 +2,15 @@ require(ROCR)
 
 source("Data collection/load_evaluation_data.R")
 
+
+trapezoidSum <- function (x, y) {
+    n <- length(x)
+    delta <- (x[2] - x[1])
+    area <- sum(y[2:(n-1)])
+    area <- (area + (y[1] + y[n])/2)*delta
+    return(area)
+}
+
 computeAucAprLabels <- function (scores, labels) {
   
   scores <- matrix(scores, ncol=1)
@@ -42,6 +51,8 @@ evaluate <- function(scores, viruses, sel_drugs=NULL) {
   recall <- rep(0, length(topns))
   names(recall) <- topns
   for (virus in viruses) {
+    active_drugs <- which(drug_virus[sel_drugs,virus] != 0)
+    active_drugs <-sel_drugs[active_drugs] 
     labels <- drug_virus[,virus]
     sc <- rep(0, length(labels))
     names(sc) <- rownames(drug_virus)
@@ -56,9 +67,9 @@ evaluate <- function(scores, viruses, sel_drugs=NULL) {
       aprs[virus] <- auc_apr$apr
       sorted_scores <- sort(scores[, virus], decreasing=TRUE)
       for (top in topns) {
-        recall_per_virus[virus, as.character(top)] <- length(which(names(sorted_scores[1:top]) %in% sel_drugs))
+        recall_per_virus[virus, as.character(top)] <- length(which(names(sorted_scores[1:top]) %in% active_drugs))
         recall[as.character(top)] <- recall[as.character(top)] + recall_per_virus[virus, as.character(top)]
-        recall_per_virus[virus, as.character(top)] <- recall_per_virus[virus, as.character(top)]/length(sel_drugs)
+        recall_per_virus[virus, as.character(top)] <- recall_per_virus[virus, as.character(top)]/length(active_drugs)
       }
     }
   }
