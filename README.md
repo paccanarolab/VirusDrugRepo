@@ -1,7 +1,7 @@
 # Combining network medicine and collaborative filtering for drug repurposing against viral diseases
 This repository contains data and code for running experiments from the manuscript "Combining network medicine and collaborative filtering for drug repurposing against viral diseases", by Suzana de Siqueira Santos, Haixuan Yang, Aldo Galeano, and Alberto Paccanaro
 
-It contains 6 files:
+The following files contains the instructions for running the experiments:
 
 - **run_model.R**. R code for running the proposed method, which obtains efficacy predictions for different viruses and drugs.
 - **run_evaluation.R**. R code for calculating evaluation metrics for the proposed method and competitors.
@@ -10,16 +10,16 @@ It contains 6 files:
 - **run_reproducibility_analysis.R**. R code for running the reproducibility analysis.
 - **run_lambda_sensitivity.R**, R code for evaluating the variance of the performance for different values of the hyperparemeters lambda1, lambda2, lambda3, lambda4.
 
-And two folders: 
+The repository also has two folders, which contain auxiliary code and data for running the experiments:
 
-- **Data collection**. Use the R code provided in this folder if you want to parse data from the orginal sources.
-- **Data analysis**. The R code provided in this folder constains the model implementation and further experiments
+- **Data collection**. Data and R code for parsing data from the orginal sources.
+- **Data analysis**. Processed data and R code with model implementation and auxiliary functions for the remaining experiments (reproducibility analysis, biological interpretation, etc).
 
 Each folder contains a README file describing the files within the folder.
 
 ## Dependencies
 
-No additional package is necessary for running the proposed method. However, if you want to parse the original data and perform further analyses, you might need to install the following R packages: 
+No additional package is necessary for learning our model. However, if you want to parse the original data and carry out further analyses, you might need to install the following R packages: 
 
 - ROCR
 - Polychrome
@@ -27,3 +27,5 @@ No additional package is necessary for running the proposed method. However, if 
 - reshape2
 - Rtsne
 - scatterplot3d
+
+**IMPORTANT**: For dowloading the complete dataset required for biological interpretation and for parsing the orginal data, please install **git lfs**, and initialize it with the command **git lfs install** before cloning the repository.
