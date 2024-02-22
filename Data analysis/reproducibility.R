@@ -1,5 +1,15 @@
 library("GMKMcharlie")
 
+source("Data analysis/cosine_similarity.R")
+
+listOfClusters <- function(clusters) {
+  elements <- c()
+  for (i in 1:length(clusters)) {
+    elements[clusters[[i]]$clusterMember] <- i
+  }
+  return(elements)
+}
+
 # Cluster the columns of the concatenated matrix into k clusters
 clusterComponents <- function(W, k, init="++", seed=0) {
   # Components are on the columns

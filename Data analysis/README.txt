@@ -3,6 +3,7 @@ This folder contains the files:
     evaluation.R - R function with auxiliary functions for evaluating the methods
     model.R - model implementation (gradientDescentAdam function)
     reproducibility.R - R function with auxiliary functions for running the reproducibility analysis
+    consine_similarity.R - R code for computing cosine similarity between embeddings
 
 and the sub-folders:
     Competitors - predictions obtained by methods compared against our approach
