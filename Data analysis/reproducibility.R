@@ -2,6 +2,31 @@ library("GMKMcharlie")
 
 source("Data analysis/cosine_similarity.R")
 
+
+silhouettePerCluster <- function(clusters, silhouttes) {
+  res <- list()
+  for (i in 1:length(clusters)) {
+    res[[i]] <- silhouttes[clusters[[i]]$clusterMember]
+  }
+  return(res)
+}
+
+mapClusters <- function(i, clusters) {
+  for (j in 1:length(clusters)) {
+    if (i %in% clusters[[j]]$clusterMember)
+      return(j)
+  }
+}
+
+mapAllItemsCluster <- function(clusters, nitems) {
+  map <- c()
+  for (i in 1:nitems) {
+    map[i] <- mapClusters(i, clusters)
+  }
+  return(map)
+}
+
+
 listOfClusters <- function(clusters) {
   elements <- c()
   for (i in 1:length(clusters)) {
@@ -52,5 +77,6 @@ plotSilhouette <- function(rep) {
   cols <- c()
   colors <- rep(2:8, rep(length(sizes)))
   for (i in 1:length(sizes)) cols <- c(cols, rep(colors[i], sizes[i]))
+  sil <- rep$sil
   plot(sil, col=cols, main="Silhouette plot")
 }

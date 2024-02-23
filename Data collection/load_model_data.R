@@ -72,8 +72,6 @@ sel_proteins <- setdiff(colnames(VH), union(names(i), names(j)))
 A <- DH[, sel_proteins]
 B <- VH[, sel_proteins]
 
-load("~/Data/Gradient Descent/input_matrices.RData")
-
 # Building matrix G ------------------------------------------------------------
 
 # This function builds a matrix containing z-scores that measure the 

@@ -32,20 +32,20 @@ bestU <- repU[[which.max(mean_silhoutteU)]]
 
 # Plot the silhouette obtained for the virus embedding
 pdf("Data analysis/Plots/silhouttePlotV.pdf")
-plotSilhouette(bestV, computeSil=FALSE)
+plotSilhouette(bestV)
 dev.off()
 
 # Plot the silhouette obtained for the drug embedding
 pdf("Data analysis/Plots/silhouttePlotD.pdf")
-plotSilhouette(bestD, computeSil=FALSE)
+plotSilhouette(bestD)
 dev.off()
 
 # Plot the silhouette obtained for the virus embedding
 pdf("Data analysis/Plots/silhouttePlotP.pdf")
-plotSilhouette(bestP, computeSil=FALSE)
+plotSilhouette(bestP)
 dev.off()
 
 # Plot the silhoette obtained for the gene embedding
 pdf("Data analysis/Plots/silhouttePlotU.pdf")
-plotSilhouette(bestU, computeSil=FALSE)
+plotSilhouette(bestU)
 dev.off()
