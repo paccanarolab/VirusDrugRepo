@@ -1,5 +1,4 @@
-
-sorce("Data analysis/cosine_similarity.R")
+source("Data analysis/cosine_similarity.R")
 
 # Load drug-target associations
 load("Data collection/Data/drug_targets_Gysi.RData")

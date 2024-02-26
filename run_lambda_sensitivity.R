@@ -13,7 +13,7 @@ loadPredctionsLambdas()
 loadDrugVirusAssociations()
 i <- which(colSums(drug_virus) > 0)
 sel_viruses <- colnames(drug_virus)[i]
-drugs <- rownames(our_method)
+drugs <- rownames(drug_virus)
 
 
 # Compute AUC and recall (Fig S9)

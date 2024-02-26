@@ -115,7 +115,7 @@ evaluateMethods <- function(scores_list, viruses, sel_drugs) {
 
 evaluateFiles <- function(dir, files) {
   loadDrugVirusAssociations()
-  sel_viruses <- which(colSums(drug_virus) == 0)
+  sel_viruses <- which(colSums(drug_virus) > 0)
   sel_viruses <- colnames(drug_virus)[sel_viruses]
   aucs <- matrix(NA, length(sel_viruses), length(files))
   rownames(aucs) <- sel_viruses
@@ -126,8 +126,8 @@ evaluateFiles <- function(dir, files) {
   for (file in files) {
     scores <- getPredictions(paste0(dir, file))
     eval <- evaluate(scores, sel_viruses)
-    aucs[, file] <- eval$auc[viruses_hvidb_eval]
-    recall[, file] <- eval$recall_per_virus[viruses_hvidb_eval, "150"]
+    aucs[, file] <- eval$auc[sel_viruses]
+    recall[, file] <- eval$recall_per_virus[sel_viruses, "150"]
   }
   
   return(list("auc"=aucs, "recall"=recall))
