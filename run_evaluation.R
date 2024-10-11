@@ -91,13 +91,13 @@ boxplot(eval_main$recall_200, pch=20, col=colors[2:3], ylab="Recall@200",
                                            "Our method"))
 dev.off()
 
-# Supplementary Fig S2a
+# Supplementary Fig S4a
 pdf(paste0(results_folder, "AUC_sup_Li.pdf"), width=8)
 boxplot(eval_sup_li$auc, pch=20, col=c(colors[5], colors[3]), ylab="AUC", 
         cex.lab=1.5, cex.axis=1.5, names=c("Li at al", "Our method"))
 dev.off()
 
-# Supplementary Fig S2b
+# Supplementary Fig S4b
 pdf(paste0(results_folder, "Recall_sup_Li.pdf"), width=8)
 boxplot(eval_sup_li$recall, pch=20, col=c(colors[5], colors[3]), 
         ylab="Recall@150", cex.lab=1.5, cex.axis=1.5, names=c("Li at al", 
@@ -105,13 +105,13 @@ boxplot(eval_sup_li$recall, pch=20, col=c(colors[5], colors[3]),
 dev.off()
 
 
-# Supplementary Fig SXa
+# Supplementary Fig S3a
 pdf(paste0(results_folder, "AUC_sup_SaveRUNNER.pdf"), width=8)
 boxplot(eval_sup_saverunner$auc, pch=20, col=c(colors[1], colors[3]), ylab="AUC", 
         cex.lab=1.5, cex.axis=1.5, names=c("SaveRUNNER", "Our method"))
 dev.off()
 
-# Supplementary Fig SXb
+# Supplementary Fig S3b
 pdf(paste0(results_folder, "Recall_sup_SaveRUNNER.pdf"), width=8)
 boxplot(eval_sup_saverunner$recall, pch=20, col=c(colors[1], colors[3]), 
         ylab="Recall@150", cex.lab=1.5, cex.axis=1.5, names=c("SaveRUNNER", 
